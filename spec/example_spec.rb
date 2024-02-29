@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 require_relative '../integer'
+require_relative '../counter'
 
 RSpec.describe do
   describe 'equality' do
@@ -57,6 +58,13 @@ RSpec.describe do
       expect(27.5).to be_within(0.5).of(28)
       expect(27.5).to be_within(0.5).of(27.4)
       expect(27.5).not_to be_within(0.5).of(26.9)
+    end
+  end
+
+  describe 'change' do
+    it 'change', :aggregate_failures do
+      expect { Counter.increment }.to change { Counter.count }.from(0).to(1)
+      expect { Counter.increment }.to change { Counter.count }.by(1)
     end
   end
 end
