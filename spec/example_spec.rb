@@ -50,4 +50,13 @@ RSpec.describe do
       expect([1, 3, 5]).to all(be_odd.and be < 10)
     end
   end
+
+  describe 'be_within' do
+    it 'be_within', :aggregate_failures do
+      expect(27.5).to be_within(0.5).of(27)
+      expect(27.5).to be_within(0.5).of(28)
+      expect(27.5).to be_within(0.5).of(27.4)
+      expect(27.5).not_to be_within(0.5).of(26.9)
+    end
+  end
 end
