@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+require_relative '../integer'
+
 RSpec.describe do
   describe 'equality' do
     it 'equal', :aggregate_failures do
@@ -27,6 +29,16 @@ RSpec.describe do
 
       hoge = { a: 1, b: 2 }
       expect(hoge).to have_key(:a)
+    end
+  end
+
+  describe 'type' do
+    it 'type', :aggregate_failures do
+      expect(7).to be_kind_of(Integer)
+      expect(7).to be_instance_of(Integer)
+      expect(7).to be_a(Integer)
+      expect(7).to be_kind_of(Numeric)
+      expect(7).to be_kind_of(MyModule)
     end
   end
 end
