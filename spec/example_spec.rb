@@ -19,4 +19,14 @@ RSpec.describe do
       expect(9).to be < 10
     end
   end
+
+  describe 'predicate' do
+    it 'predicatie', :aggregate_failures do
+      expect(7).not_to be_zero
+      expect([]).to be_empty
+
+      hoge = { a: 1, b: 2 }
+      expect(hoge).to have_key(:a)
+    end
+  end
 end
