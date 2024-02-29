@@ -41,4 +41,13 @@ RSpec.describe do
       expect(7).to be_kind_of(MyModule)
     end
   end
+
+  describe 'all' do
+    it 'all', :aggregate_failures do
+      expect([1, 3, 5]).to all(be_odd)
+      expect([1, 3, 5]).to all(be_an(Integer))
+      expect([1, 3, 5]).to all(be < 10)
+      expect([1, 3, 5]).to all(be_odd.and be < 10)
+    end
+  end
 end
