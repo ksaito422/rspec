@@ -102,4 +102,16 @@ RSpec.describe do
       expect(person).to have_attributes(name: 'hoge', age: 20)
     end
   end
+
+  describe 'include' do
+    it 'include', :aggregate_failures do
+      expect([1, 2, 3]).to include(3)
+      expect([1, 2, 3]).to include(2, 3)
+      expect([1, 2, 3]).not_to include(4)
+
+      expect({ a: 1, b: 2 }).to include(a: 1)
+      expect({ a: 1, b: 2 }).to include(a: 1, b: 2)
+      expect({ a: 1, b: 2 }).not_to include(a: 2)
+    end
+  end
 end
