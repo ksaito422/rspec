@@ -122,4 +122,10 @@ RSpec.describe do
       expect('hoge').not_to match(/fuga/)
     end
   end
+
+  describe 'raise_error' do
+    it 'raise_error', :aggregate_failures do
+      expect { raise 'hoge' }.to raise_error(RuntimeError)
+    end
+  end
 end
