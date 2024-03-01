@@ -91,4 +91,15 @@ RSpec.describe do
       expect('hoge').not_to end_with('h')
     end
   end
+
+  describe 'have_attributes' do
+    it 'have_attributes', :aggregate_failures do
+      Person = Struct.new(:name, :age)
+      person = Person.new('hoge', 20)
+
+      expect('hoge').to have_attributes(length: 4, upcase: 'HOGE')
+      expect('hoge').not_to have_attributes(length: 3)
+      expect(person).to have_attributes(name: 'hoge', age: 20)
+    end
+  end
 end
