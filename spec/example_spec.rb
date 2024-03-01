@@ -114,4 +114,12 @@ RSpec.describe do
       expect({ a: 1, b: 2 }).not_to include(a: 2)
     end
   end
+
+  describe 'match' do
+    it 'match', :aggregate_failures do
+      expect('hoge').to match(/hoge/)
+      expect('hoge').to match('hoge')
+      expect('hoge').not_to match(/fuga/)
+    end
+  end
 end
