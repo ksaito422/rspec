@@ -128,4 +128,12 @@ RSpec.describe do
       expect { raise 'hoge' }.to raise_error(RuntimeError)
     end
   end
+
+  describe 'respond_to' do
+    it 'respond_to', :aggregate_failures do
+      expect(1).to respond_to(:odd?)
+      expect(1).to respond_to(:to_s)
+      expect(1).not_to respond_to(:hoge)
+    end
+  end
 end
