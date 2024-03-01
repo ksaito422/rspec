@@ -74,4 +74,13 @@ RSpec.describe do
       expect([1, 2, 3]).not_to contain_exactly(3, 2)
     end
   end
+
+  describe 'cover' do
+    it 'cover', :aggregate_failures do
+      expect(1..10).to cover(5)
+      expect(1..10).to cover(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+      expect(1..10).not_to cover(0)
+      expect(1..10).not_to cover(11)
+    end
+  end
 end
