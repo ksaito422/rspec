@@ -67,4 +67,11 @@ RSpec.describe do
       expect { Counter.increment }.to change { Counter.count }.by(1)
     end
   end
+
+  describe 'contain_exactly' do
+    it 'contain_exactly', :aggregate_failures do
+      expect([1, 2, 3]).to contain_exactly(3, 2, 1)
+      expect([1, 2, 3]).not_to contain_exactly(3, 2)
+    end
+  end
 end
