@@ -136,4 +136,11 @@ RSpec.describe do
       expect(1).not_to respond_to(:hoge)
     end
   end
+
+  describe 'satisfy' do
+    it 'satisfy', :aggregate_failures do
+      expect(7).to satisfy('be a multiple of 7') { |v| v % 7 == 0 }
+      expect(7).not_to satisfy('be a multiple of 3') { |v| v % 3 == 0 }
+    end
+  end
 end
