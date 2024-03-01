@@ -143,4 +143,12 @@ RSpec.describe do
       expect(7).not_to satisfy('be a multiple of 3') { |v| v % 3 == 0 }
     end
   end
+
+  describe 'start_with' do
+    it 'start_with', :aggregate_failures do
+      expect('hoge').to start_with('ho')
+      expect('hoge').to start_with('hoge')
+      expect('hoge').not_to start_with('ge')
+    end
+  end
 end
