@@ -83,4 +83,12 @@ RSpec.describe do
       expect(1..10).not_to cover(11)
     end
   end
+
+  describe 'end_with' do
+    it 'end_with', :aggregate_failures do
+      expect('hoge').to end_with('ge')
+      expect('hoge').to end_with('oge')
+      expect('hoge').not_to end_with('h')
+    end
+  end
 end
