@@ -188,4 +188,12 @@ RSpec.describe do
       expect(7).to be < 10, '7 is less than 10'
     end
   end
+
+  # expectに置き換えるよう警告が出るため、コメントアウト
+  # describe 'should' do
+  #   it 'should', :aggregate_failures do
+  #     7.should be_odd
+  #     7.should be < 10
+  #   end
+  # end
 end
