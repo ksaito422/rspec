@@ -151,4 +151,11 @@ RSpec.describe do
       expect('hoge').not_to start_with('ge')
     end
   end
+
+  describe 'throw' do
+    it 'throw', :aggregate_failures do
+      expect { throw :hoge }.to throw_symbol(:hoge)
+      expect { throw :hoge }.not_to throw_symbol(:fuga)
+    end
+  end
 end
