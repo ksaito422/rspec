@@ -187,6 +187,23 @@ RSpec.describe do
       expect(7).to be_odd, '7 is odd'
       expect(7).to be < 10, '7 is less than 10'
     end
+
+    it 'is odd and less than 10', :pending => 'unimplemented' do
+      expect(7).to be < 6, '7 is less than 10'
+    end
+
+    pending '7 is odd and less than 10' do
+      expect(7).to be < 6, '7 is less than 10'
+    end
+
+    skip '7 is odd and less than 10' do
+      expect(7).to be < 6, '7 is less than 10'
+    end
+
+    xit 'is odd and less than 10', :aggregate_failures do
+      expect(7).to be_odd, '7 is odd'
+      expect(7).to be < 10, '7 is less than 10'
+    end
   end
 
   # expectに置き換えるよう警告が出るため、コメントアウト
