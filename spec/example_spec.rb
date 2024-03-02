@@ -73,6 +73,11 @@ RSpec.describe do
       expect([1, 2, 3]).to contain_exactly(3, 2, 1)
       expect([1, 2, 3]).not_to contain_exactly(3, 2)
     end
+
+    it 'composing', :aggregate_failures do
+      expect(['barn', 2.45]).to contain_exactly(be_within(0.1).of(2.5), 'barn')
+      expect(['barn', 2.45]).not_to contain_exactly(be_within(0.1).of(2.44), 'bar')
+    end
   end
 
   describe 'cover' do
@@ -112,6 +117,10 @@ RSpec.describe do
       expect({ a: 1, b: 2 }).to include(a: 1)
       expect({ a: 1, b: 2 }).to include(a: 1, b: 2)
       expect({ a: 1, b: 2 }).not_to include(a: 2)
+    end
+
+    it 'composing', :aggregate_failures do
+      expect([1, 2, 3]).to include(3).and include(2)
     end
   end
 
