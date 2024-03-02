@@ -174,4 +174,11 @@ RSpec.describe do
       expect { warn 'hoge' }.to output("hoge\n").to_stderr
     end
   end
+
+  describe 'compound' do
+    it 'compound', :aggregate_failures do
+      expect(7).to be_odd.and be < 10
+      expect(7).to be_odd.or be_even
+    end
+  end
 end
