@@ -158,4 +158,11 @@ RSpec.describe do
       expect { throw :hoge }.not_to throw_symbol(:fuga)
     end
   end
+
+  describe 'output' do
+    it 'output', :aggregate_failures do
+      expect { print 'hoge' }.to output('hoge').to_stdout
+      expect { warn 'hoge' }.to output("hoge\n").to_stderr
+    end
+  end
 end
