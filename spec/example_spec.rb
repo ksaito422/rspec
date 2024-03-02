@@ -181,4 +181,11 @@ RSpec.describe do
       expect(7).to be_odd.or be_even
     end
   end
+
+  describe 'customized message' do
+    it 'is odd and less than 10', :aggregate_failures do
+      expect(7).to be_odd, '7 is odd'
+      expect(7).to be < 10, '7 is less than 10'
+    end
+  end
 end
