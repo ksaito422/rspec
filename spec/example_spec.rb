@@ -222,4 +222,11 @@ RSpec.describe do
       is_expected.to be < 10
     end
   end
+
+  describe 'metadata' do
+    it 'metadata', :aggregate_failures do |example|
+      expect(example.description).to eq('metadata')
+      expect(example.metadata[:aggregate_failures]).to eq(true)
+    end
+  end
 end
