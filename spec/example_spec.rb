@@ -213,4 +213,13 @@ RSpec.describe do
   #     7.should be < 10
   #   end
   # end
+
+  describe 'subject' do
+    subject { 7 }
+
+    it 'subject', :aggregate_failures do
+      is_expected.to be_odd
+      is_expected.to be < 10
+    end
+  end
 end
