@@ -26,5 +26,17 @@ RSpec.describe do
       invitation.deliver
       expect(invitation).to have_received(:deliver)
     end
+
+    describe 'stub_const' do
+      FOO = 7
+      it "can stub FOO with a different value" do
+        stub_const("FOO", 5)
+        expect(FOO).to eq(5)
+      end
+
+      it "restores the stubbed constant when the example completes" do
+        expect(FOO).to eq(7)
+      end
+    end
   end
 end
