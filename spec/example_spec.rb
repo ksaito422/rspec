@@ -229,4 +229,12 @@ RSpec.describe do
       expect(example.metadata[:aggregate_failures]).to eq(true)
     end
   end
+
+  # fを頭につけるだけで、:focusと同じ効果がある
+  # fdescribe 'metadata' do
+  #   it 'metadata', :aggregate_failures do |example|
+  #     expect(example.description).to eq('metadata')
+  #     expect(example.metadata[:aggregate_failures]).to eq(true)
+  #   end
+  # end
 end
